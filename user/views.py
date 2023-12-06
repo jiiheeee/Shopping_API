@@ -17,7 +17,7 @@ from user.models import User
 #     result =[]
 #     for reservation in reservation_list:
 #         result.append(f"{reservation.realname}가 {reservation.product}를 싰습니다.")
-    # return HttpResponse(str(result))
+# return HttpResponse(str(result))
 
 def index(request, user_id:int):
     from reservation.models import Reservation

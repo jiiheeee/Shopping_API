@@ -15,6 +15,3 @@ class ReservationView(APIView):
 #     reservation_data = Reservation.objects.get(id=reservation_id)
 #     serializer = ReservationSerializer(reservation_data)
 #     return Response(serializer.data)
-
-
-
