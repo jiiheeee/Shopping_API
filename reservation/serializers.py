@@ -8,7 +8,7 @@ class ReservationSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(required=True)
     product = serializers.SerializerMethodField(read_only=True)
     user = serializers.SerializerMethodField(read_only=True)
-    
+
     class Meta:
         model = Reservation
         fields = (
@@ -20,8 +20,7 @@ class ReservationSerializer(serializers.ModelSerializer):
     @staticmethod
     def get_product(obj):
         return obj.product.name
-    
+
     @staticmethod
     def get_user(obj):
         return obj.user.realname
-    

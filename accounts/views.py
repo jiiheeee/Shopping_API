@@ -1,10 +1,7 @@
 from django.http import HttpResponse
 from user.models import User
-from rest_framework.response import Response
 from rest_framework.views import APIView
-from reservation.models import Reservation
 from user.models import User
-from product.models import Product
 
 
 class SignUpView(APIView):
