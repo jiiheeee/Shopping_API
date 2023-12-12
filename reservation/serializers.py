@@ -9,12 +9,6 @@ class ReservationSerializer(serializers.ModelSerializer):
     product = serializers.SerializerMethodField
     user = serializers.SerializerMethodField
 
-class ReservationlistSerializer(serializers.ModelSerializer):
-
-    reservation_number = serializers.CharField(required=True)
-    user = serializers.SerializerMethodField
-    product = serializers.SerializerMethodField
-    created_at = serializers.DateTimeField(required=True)
 
     class Meta:
         model = Reservation
@@ -32,3 +26,26 @@ class ReservationlistSerializer(serializers.ModelSerializer):
     @staticmethod
     def get_user(obj):
         return obj.user.realname
+
+# class ReservationlistSerializer(ReservationSerializer):
+#     reservation_number = serializers.CharField(required=True)
+#     user = serializers.SerializerMethodField
+#     product = serializers.SerializerMethodField
+#     created_at = serializers.DateTimeField(required=True)
+
+#     class Meta:
+#         model = Reservation
+#         fields = (
+#             'reservation_number',
+#             'created_at',
+#             'product',
+#             'user'
+#         )
+
+#     @staticmethod
+#     def get_product(obj):
+#         return obj.product.name
+
+#     @staticmethod
+#     def get_user(obj):
+#         return obj.user.realname
