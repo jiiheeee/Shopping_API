@@ -9,10 +9,13 @@ class ReservationView(APIView):
         serializer = ReservationSerializer(reservation_data)
         return Response(serializer.data)
 
-class RerservationlistView(APIView):
-    def get(self, request, reservation_name):
-        reservation_list = Reservation.objects.get(name=reservation_name)
-        serializer = ReservationSerializer(reservation_list)
+class ReservationlistView(APIView):
+    def get(self, request, user_name):
+        order_list = Reservation.objects.filter(name=user_name)
+        result = []
+        for order in order_list:
+            result.append(f"")
+        serializer = ReservationSerializer(order_list)
         return Response(serializer.data)
 
 

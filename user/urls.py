@@ -5,5 +5,5 @@ from . import views
 
 urlpatterns = [
     path("<int:user_id>", views.index, name="index"),
-    path("<str:user_name>", views.UserView.as_view()),
+    path("<str:user_name>", views.UserView.as_view())
 ]
