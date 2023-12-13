@@ -31,3 +31,9 @@ class ReservationAddView(APIView):
         product_id=product
         )
         return HttpResponse('주문이 완료되었습니다.')
+    
+class ReservationCancel(APIView):
+    def get(self, request, reservation_id: int):
+        order_cancel = Reservation.objects.get(id=reservation_id)
+        order_cancel.delete()
+        return HttpResponse('주문을 취소하였습니다.')
