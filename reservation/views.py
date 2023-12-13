@@ -26,14 +26,17 @@ class ReservationAddView(APIView):
         product = request.data.get("product_id")
 
         Reservation.objects.create(
-        reservation_number=reservation_number,
-        user_id=user,
-        product_id=product
+            reservation_number=reservation_number,
+            user_id=user,
+            product_id=product
         )
         return HttpResponse('주문이 완료되었습니다.')
     
 class ReservationCancel(APIView):
     def get(self, request, reservation_id: int):
-        order_cancel = Reservation.objects.get(id=reservation_id)
+        try:
+            order_cancel = Reservation.objects.get(id=reservation_id)
+        except Exception as e:
+            return Response('주문 취소를 실패하였습니다', status=400)
         order_cancel.delete()
-        return HttpResponse('주문을 취소하였습니다.')
+        return HttpResponse('주문을 취소하였습니다.', status=200)
