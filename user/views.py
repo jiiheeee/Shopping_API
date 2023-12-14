@@ -16,4 +16,4 @@ class UserView(APIView):
     def get(self, request, user_name:str):
         user_detail = User.objects.get(realname=user_name)
         serializer = UserSerializer(user_detail)
-        return Response(serializer.data) 
+        return Response(serializer.data)

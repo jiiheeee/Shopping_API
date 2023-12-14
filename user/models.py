@@ -8,3 +8,4 @@ class User(models.Model):
     is_active = models.BooleanField(default=True, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now_add=True)
+
