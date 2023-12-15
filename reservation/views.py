@@ -1,3 +1,5 @@
+import random
+import datetime
 from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -21,7 +23,12 @@ class ReservationListView(APIView):
     
 class ReservationAddView(APIView):
     def post(self, request):
-        reservation_number = request.data.get("reservation_number")
+        now_time = datetime.datetime.now()
+        type_change_time = now_time.strftime('%Y%m%d%H%M%S')
+        random_number = str(random.randint(1000, 9999))
+        random_number_result = type_change_time + random_number
+        
+        reservation_number = random_number_result
         user = request.data.get("user_id")
         product = request.data.get("product_id")
 
