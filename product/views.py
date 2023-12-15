@@ -15,4 +15,4 @@ class ProductSearchView(APIView):
         product_list = Product.objects.filter(name=product_name)
         serializer = ProductSerializer(product_list, many=True)
         return Response(serializer.data)
-        
+        # 물품명이 들어간 모든 물품 검색 기능 추가
