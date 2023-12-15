@@ -4,9 +4,11 @@ from rest_framework.views import APIView
 from .serializers import ProductSerializer
 from rest_framework.response import Response
 
-def get_remain_stock(request, product_id:int):
-    product = Product.objects.get(id=product_id)
-    return HttpResponse(f"{product.name}의 남은 수량은 {product.remain_stock}입니다.")
+class ProductDetailView(APIView):
+    def get(self, request, product_id:int):
+        product_detail = Product.objects.get(id=product_id)
+        serializer = ProductSerializer(product_detail)
+        return Response(serializer.data)
 
 # 여러 개 filter, 한 개 가져올때는 get
 
