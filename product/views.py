@@ -12,7 +12,6 @@ def get_remain_stock(request, product_id:int):
 
 class ProductSearchView(APIView):
     def get(self, request, product_name: str):
-        product_list = Product.objects.filter(name=product_name)
+        product_list = Product.objects.filter(name__icontains=product_name) 
         serializer = ProductSerializer(product_list, many=True)
         return Response(serializer.data)
-        # 물품명이 들어간 모든 물품 검색 기능 추가
