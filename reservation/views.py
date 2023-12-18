@@ -9,7 +9,7 @@ from .serializers import ReservationSerializer
 class ReservationView(APIView):
     def get(self, request, user_id: int, reservation_id: int):
         try:
-            reservation_data = Reservation.objects.get(id=reservation_id, user__id=user_id)
+            reservation_data = Reservation.objects.get(id=reservation_id, user__id=request.user.id)
         except Exception as e:
             return Response("해당 고객이 주문한 주문내역이 아닙니다.", status=400)
         serializer = ReservationSerializer(reservation_data)
