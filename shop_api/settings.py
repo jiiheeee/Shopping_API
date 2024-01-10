@@ -42,8 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'accounts.apps.AccountsConfig',
-    'cart.apps.CartConfig'
+    'cart.apps.CartConfig',
+    'payments.apps.PaymentsConfig'
 ]
+
+IAMPORT = {
+    'IAMPORT_KEY': '6025540088612063',
+    'IAMPORT_SECRET': 'VCN46N1d4ZUtlvP6NNfBvFsjrI5lI3vLBrSZxcWczdttwSeeSaazSemMFgX1xmJHADv0ZuJOSIPwn9SI'
+
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
