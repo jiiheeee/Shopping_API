@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'accounts.apps.AccountsConfig',
-    'cart.apps.CartConfig',
-    'payments.apps.PaymentsConfig'
+    'cart.apps.CartConfig'
+    # 'payments.apps.PaymentsConfig'
 ]
 
 IAMPORT = {
